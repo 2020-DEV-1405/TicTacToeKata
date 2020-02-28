@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.tictactoe.kata.game.GameStateEnum;
 import com.tictactoe.kata.game.TicTacToeGameProcessor;
 
 /**
@@ -78,5 +79,23 @@ public class TicTacToeKataApplicationTests {
 		boolean crossPlaced = ticTacToe.markCross(2, 1);
 
 		assertEquals(false, crossPlaced);
+	}
+	
+	@Test
+	public void testThreeCircleMarkedInARowWins() {
+		ticTacToe.markCircle(0, 0);
+		ticTacToe.markCircle(0, 1);
+		ticTacToe.markCircle(0, 2);
+		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+	
+	@Test
+	public void testThreeCrossMarkedInARowWins() {
+		ticTacToe.markCross(0, 0);
+		ticTacToe.markCross(0, 1);
+		ticTacToe.markCross(0, 2);
+		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
 	}
 }
