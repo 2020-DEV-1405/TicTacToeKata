@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 
 import com.tictactoe.kata.game.player.Player;
 
+import static com.tictactoe.kata.game.util.Constants.ENTER_ROW;
+import static com.tictactoe.kata.game.util.Constants.ENTER_COLUMN;
+import static com.tictactoe.kata.game.util.Constants.POSITION_OCCUPIED;
+import static com.tictactoe.kata.game.util.Constants.INCORRECT_ROW_COL_VALUE;
 
 /**
  * Class that allows user to input from command line for both player and outcome
@@ -101,9 +105,9 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 			if (isFirst) {
 				do {
 					do {
-						System.out.println(player1.getPlayerName() + " : Please enter Row position");
+						System.out.println(player1.getPlayerName() + ENTER_ROW);
 						row = inputReader.nextInt();
-						System.out.println(player1.getPlayerName() + " : Please enter Column position");
+						System.out.println(player1.getPlayerName() + ENTER_COLUMN);
 						col = inputReader.nextInt();
 					
 						if (row <=2 && col <= 2) {
@@ -111,12 +115,12 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 							count++;
 							
 							if (!isMarked) {
-								System.out.println("\n Row & Column position is already occupied, Please re-enter.. \n");
+								System.out.println(POSITION_OCCUPIED);
 							} else {
 								break;
 							}
 						} else {
-							System.out.println("\n Incorrect Row & Column values provided, Please re-enter \n");
+							System.out.println(INCORRECT_ROW_COL_VALUE);
 						}
 						
 					} while (true);						
@@ -127,9 +131,9 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 						
 					System.out.println(newline);					
 					do {
-						System.out.println(player2.getPlayerName() + " : Please enter Row position");
+						System.out.println(player2.getPlayerName() + ENTER_ROW);
 						row = inputReader.nextInt();
-						System.out.println(player2.getPlayerName() + " : Please enter Column position");
+						System.out.println(player2.getPlayerName() + ENTER_COLUMN);
 						col = inputReader.nextInt();
 						
 						if (row <=2 && col <= 2) {
@@ -137,12 +141,12 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 							count++;
 							
 							if (!isMarked) {
-								System.out.println("\n Row & Column position is already occupied, Please re-enter.. \n");
+								System.out.println(POSITION_OCCUPIED);
 							} else {
 								break;
 							}				
 						} else {
-							System.out.println("\n Incorrect Row & Column values provided, Please re-enter \n");
+							System.out.println(INCORRECT_ROW_COL_VALUE);
 						}												
 					} while (true);					
 					
@@ -158,9 +162,9 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 			} else {
 				do {
 					do {
-						System.out.println(player2.getPlayerName() + " : Please enter Row position");
+						System.out.println(player2.getPlayerName() + ENTER_ROW);
 						row = inputReader.nextInt();
-						System.out.println(player2.getPlayerName() + " : Please enter Column position");
+						System.out.println(player2.getPlayerName() + ENTER_COLUMN);
 						col = inputReader.nextInt();
 						
 						if (row <=2 && col <= 2) {
@@ -168,12 +172,12 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 							count++;
 							
 							if (!isMarked) {
-								System.out.println("\n Row & Column position is already occupied, Please re-enter.. \n");
+								System.out.println(POSITION_OCCUPIED);
 							} else {
 								break;
 							}		
 						} else {
-							System.out.println("\n Incorrect Row & Column values provided, Please re-enter \n");
+							System.out.println(INCORRECT_ROW_COL_VALUE);
 						}
 									
 					} while (true);						
@@ -185,21 +189,21 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 					System.out.println(newline);
 					
 					do {
-						System.out.println(player1.getPlayerName() + " : Please enter Row position");
+						System.out.println(player1.getPlayerName() + ENTER_ROW);
 						row = inputReader.nextInt();
-						System.out.println(player1.getPlayerName() + " : Please enter Column position");
+						System.out.println(player1.getPlayerName() + ENTER_COLUMN);
 						col = inputReader.nextInt();
 						isMarked= ticTacToeGame.markCircle(row, col);
 						count++;
 						
 						if (row <= 2 && col <= 2) {
 							if (!isMarked) {
-								System.out.println("\n Row & Column position is already occupied, Please re-enter.. \n");
+								System.out.println(POSITION_OCCUPIED);
 							} else {
 								break;
 							}			
 						} else {
-							System.out.println("\n Incorrect Row & Column values provided, Please re-enter \n");
+							System.out.println(INCORRECT_ROW_COL_VALUE);
 						}													
 					} while (true);					
 					
@@ -227,7 +231,7 @@ public class TicTacToeKataRunner implements CommandLineRunner {
 				}
 				
 				if (winner == GameStateEnum.BLANK) {
-					System.out.format("TIC TAC TOE GAME IS DRAWN");
+					System.out.println("TIC TAC TOE GAME IS DRAWN");
 				}
 			}
 			System.out.println(newline);			
