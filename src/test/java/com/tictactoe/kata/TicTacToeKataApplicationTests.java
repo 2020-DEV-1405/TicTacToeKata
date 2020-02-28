@@ -84,57 +84,49 @@ public class TicTacToeKataApplicationTests {
 	@Test
 	public void testThreeCircleMarkedInARowWins() {
 		markCircleInSameRow();
-		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCircleState();
 	}
 
 	@Test
 	public void testThreeCrossMarkedInARowWins() {
 		markCrossInSameRow();
-		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCrossState();
 	}
 
 	@Test
 	public void testThreeCircleMarkedInAColWins() {
 		markCircleInSameColumn();
-		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCircleState();
 	}
 
 	@Test
 	public void testThreeCrossMarkedInAColWins() {
 		markCrossInSameColumn();
-		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCrossState();
 	}
 
 	@Test
 	public void testThreeCircleMarkedDiagonally() {
 		markCircleDiagonally();
-		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCircleState();
 	}
 
 	@Test
 	public void testThreeCrossMarkedDiagonally() {
 		markCrossDiagonally();
-		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCrossState();
 	}
 
 	@Test
 	public void testThreeCircleMarkedReverseDiagonally() {
 		markCircleReverseDiagonally();
-		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCircleState();
 	}
 
 	@Test
 	public void testThreeCrossMarkedReverseDiagonally() {
 		markCrossReverseDiagonally();
-		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-		assertEquals(true, ticTacToe.isFinished());
+		assertWinnerWithCrossState();
 	}
 
 	private void markCircleInSameRow() {
@@ -183,5 +175,15 @@ public class TicTacToeKataApplicationTests {
 		ticTacToe.markCross(0, 2);
 		ticTacToe.markCross(1, 1);
 		ticTacToe.markCross(2, 0);
+	}
+
+	private void assertWinnerWithCrossState() {
+		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
+	private void assertWinnerWithCircleState() {
+		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
 	}
 }
