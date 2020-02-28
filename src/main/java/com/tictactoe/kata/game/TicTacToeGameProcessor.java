@@ -78,7 +78,8 @@ public class TicTacToeGameProcessor {
 	 * @param gameState
 	 */
 	public void setWinner(int row, int col, GameStateEnum gameState) {
-		validateThreeSameStateInRow(row, gameState);		
+		validateThreeSameStateInRow(row, gameState);	
+		validateThreeSameStateInColumn(col, gameState);
 	}
 	
 	/**
@@ -95,6 +96,25 @@ public class TicTacToeGameProcessor {
 			}
 
 			if (col == 2) {
+				winner = gameState;
+			}
+		}
+	}
+	
+	/**
+	 * This method finds that if one column has same sign and changes winner state
+	 * to that sign like O or X
+	 * 
+	 * @param col
+	 * @param gameState
+	 */
+	private void validateThreeSameStateInColumn(int col, GameStateEnum gameState) {
+		for (int row = 0; row < board.length; row++) {
+			if (board[row][col] != gameState) {
+				break;
+			}
+
+			if (row == 2) {
 				winner = gameState;
 			}
 		}
