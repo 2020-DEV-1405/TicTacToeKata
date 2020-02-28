@@ -80,76 +80,108 @@ public class TicTacToeKataApplicationTests {
 
 		assertEquals(false, crossPlaced);
 	}
-	
+
 	@Test
 	public void testThreeCircleMarkedInARowWins() {
-		ticTacToe.markCircle(0, 0);
-		ticTacToe.markCircle(0, 1);
-		ticTacToe.markCircle(0, 2);
+		markCircleInSameRow();
 		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
 		assertEquals(true, ticTacToe.isFinished());
 	}
-	
+
 	@Test
 	public void testThreeCrossMarkedInARowWins() {
-		ticTacToe.markCross(0, 0);
-		ticTacToe.markCross(0, 1);
-		ticTacToe.markCross(0, 2);
+		markCrossInSameRow();
 		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
 		assertEquals(true, ticTacToe.isFinished());
 	}
-	
+
 	@Test
-    public void testThreeCircleMarkedInAColWins() {
-    	ticTacToe.markCircle(0, 0);
-    	ticTacToe.markCircle(1, 0);
-    	ticTacToe.markCircle(2, 0);
-    	assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
-	
+	public void testThreeCircleMarkedInAColWins() {
+		markCircleInSameColumn();
+		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
 	@Test
-    public void testThreeCrossMarkedInAColWins() {
-    	ticTacToe.markCross(0, 0);
-    	ticTacToe.markCross(1, 0);
-    	ticTacToe.markCross(2, 0);
-    	assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
-	
+	public void testThreeCrossMarkedInAColWins() {
+		markCrossInSameColumn();
+		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
 	@Test
-    public void testThreeCircleMarkedDiagonally() {
-    	ticTacToe.markCircle(0, 0);
-    	ticTacToe.markCircle(1, 1);
-    	ticTacToe.markCircle(2, 2);
-    	assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
-	
+	public void testThreeCircleMarkedDiagonally() {
+		markCircleDiagonally();
+		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
 	@Test
-    public void testThreeCrossMarkedDiagonally() {
-    	ticTacToe.markCross(0, 0);
-    	ticTacToe.markCross(1, 1);
-    	ticTacToe.markCross(2, 2);
-    	assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
-	
+	public void testThreeCrossMarkedDiagonally() {
+		markCrossDiagonally();
+		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
 	@Test
-    public void testThreeCircleMarkedReverseDiagonally() {
-    	ticTacToe.markCircle(0, 2);
-    	ticTacToe.markCircle(1, 1);
-    	ticTacToe.markCircle(2, 0);
-    	assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
-	
+	public void testThreeCircleMarkedReverseDiagonally() {
+		markCircleReverseDiagonally();
+		assertEquals(GameStateEnum.CIRCLE, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
 	@Test
-    public void testThreeCrossMarkedReverseDiagonally() {
-    	ticTacToe.markCross(0, 2);
-    	ticTacToe.markCross(1, 1);
-    	ticTacToe.markCross(2, 0);
-    	assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
-        assertEquals(true, ticTacToe.isFinished());
-    }
+	public void testThreeCrossMarkedReverseDiagonally() {
+		markCrossReverseDiagonally();
+		assertEquals(GameStateEnum.CROSS, ticTacToe.getWinner());
+		assertEquals(true, ticTacToe.isFinished());
+	}
+
+	private void markCircleInSameRow() {
+		ticTacToe.markCircle(0, 0);
+		ticTacToe.markCircle(0, 1);
+		ticTacToe.markCircle(0, 2);
+	}
+
+	private void markCrossInSameRow() {
+		ticTacToe.markCross(0, 0);
+		ticTacToe.markCross(0, 1);
+		ticTacToe.markCross(0, 2);
+	}
+
+	private void markCircleInSameColumn() {
+		ticTacToe.markCircle(0, 0);
+		ticTacToe.markCircle(1, 0);
+		ticTacToe.markCircle(2, 0);
+	}
+
+	private void markCrossInSameColumn() {
+		ticTacToe.markCross(0, 0);
+		ticTacToe.markCross(1, 0);
+		ticTacToe.markCross(2, 0);
+	}
+
+	private void markCircleDiagonally() {
+		ticTacToe.markCircle(0, 0);
+		ticTacToe.markCircle(1, 1);
+		ticTacToe.markCircle(2, 2);
+	}
+
+	private void markCrossDiagonally() {
+		ticTacToe.markCross(0, 0);
+		ticTacToe.markCross(1, 1);
+		ticTacToe.markCross(2, 2);
+	}
+
+	private void markCircleReverseDiagonally() {
+		ticTacToe.markCircle(0, 2);
+		ticTacToe.markCircle(1, 1);
+		ticTacToe.markCircle(2, 0);
+	}
+
+	private void markCrossReverseDiagonally() {
+		ticTacToe.markCross(0, 2);
+		ticTacToe.markCross(1, 1);
+		ticTacToe.markCross(2, 0);
+	}
 }
